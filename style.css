@@ -1,0 +1,146 @@
+/* リセット */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* ===== ナビゲーションバー ===== */
+nav {
+  background-color: #333;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+}
+
+/* ロゴ */
+.nav__logo {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* チェックボックスは見えないようにする */
+.nav__toggle {
+  display: none;
+}
+
+/* ===== ハンバーガーアイコン（3本線） ===== */
+.nav__icon {
+  display: none;
+  /* 最初は非表示 */
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  z-index: 1001;
+}
+
+.nav__icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 2px;
+  position: absolute;
+  transition: all 0.3s;
+  /* アニメーション */
+}
+
+.nav__icon span:nth-child(1) {
+  top: 0;
+}
+
+.nav__icon span:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav__icon span:nth-child(3) {
+  bottom: 0;
+}
+
+/* ===== メニューリスト ===== */
+.nav__menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav__menu li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav__menu li a:hover {
+  color: yellow;
+}
+
+/* ===== メインコンテンツ ===== */
+main {
+  padding: 30px 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+/* ===== モバイル表示（画面幅768px以下） ===== */
+@media screen and (max-width: 768px) {
+
+  /* ハンバーガーアイコンを表示 */
+  .nav__icon {
+    display: block;
+  }
+
+  /* メニューを画面外に隠す */
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    /* 画面の右側に隠す */
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    flex-direction: column;
+    padding: 60px 20px 20px;
+    transition: right 0.3s;
+    /* スムーズに動く */
+    z-index: 1000;
+  }
+
+  .nav__menu li {
+    margin-bottom: 15px;
+  }
+
+  /* チェックボックスがチェックされたら、メニューを表示 */
+  .nav__toggle:checked~.nav__menu {
+    right: 0;
+    /* 画面内に表示 */
+  }
+
+  /* チェックされたら、ハンバーガーアイコンを×に変える */
+  .nav__toggle:checked~.nav__icon span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .nav__toggle:checked~.nav__icon span:nth-child(2) {
+    opacity: 0;
+    /* 真ん中の線を消す */
+  }
+
+  .nav__toggle:checked~.nav__icon span:nth-child(3) {
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}

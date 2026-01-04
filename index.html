@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ハンバーガーメニュー</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav>
+    <!-- ロゴ -->
+    <div class="nav__logo">ロゴ</div>
+
+    <!-- チェックボックス：メニューの開閉状態を管理 -->
+    <input type="checkbox" id="nav__toggle" class="nav__toggle">
+
+    <!-- ハンバーガーアイコン（3本線） -->
+    <label for="nav__toggle" class="nav__icon" aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+
+    <!-- メニューリスト -->
+    <ul class="nav__menu">
+      <li><a href="#">ホーム</a></li>
+      <li><a href="#">私について</a></li>
+      <li><a href="#">サービス</a></li>
+      <li><a href="#">お問い合わせ</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>ハンバーガーメニューのデモ</h1>
+    <p>画面幅を狭くして、ハンバーガーアイコンをクリックしてみてください。</p>
+  </main>
+</body>
+
+</html>
