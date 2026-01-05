@@ -10,7 +10,7 @@ body {
 }
 
 /* ===== ナビゲーションバー ===== */
-nav {
+header {
   background-color: #333;
   padding: 15px 20px;
   display: flex;
