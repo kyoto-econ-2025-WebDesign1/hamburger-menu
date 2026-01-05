@@ -80,7 +80,7 @@ HTMLとCSSのみで実装されたハンバーガーメニューのサンプル�
 
 **このコードでの使用例：**
 ```css
-nav {
+header {
   position: relative; /* 子要素の基準点になる */
   z-index: 1000;
 }
@@ -131,7 +131,7 @@ nav {
 ### positionの階層関係
 
 ```
-nav (position: relative)
+header (position: relative)
   └─ .menu-icon (position: relative)
       └─ span (position: absolute) ← .menu-iconを基準に配置
   └─ .menu (position: fixed) ← 画面を基準に配置
@@ -152,7 +152,7 @@ nav (position: relative)
 ### このコードでのz-indexの役割
 
 ```css
-nav {
+header {
   position: relative;
   z-index: 1000; /* ナビゲーションバー全体のレイヤー */
 }
@@ -187,7 +187,7 @@ z-index: 1001  ← .menu-icon（ハンバーガーアイコン）
                 │
 z-index: 1000  ← .menu（メニューリスト）
                 │
-z-index: 1000  ← nav（ナビゲーションバー）
+z-index: 1000  ← header（ヘッダー）
                 │
 z-index: なし  ← その他の要素（mainなど）
                 ↓ 最背面
@@ -197,7 +197,7 @@ z-index: なし  ← その他の要素（mainなど）
 
 1. **親要素のz-indexが子要素に影響**
    - 親要素のz-indexが低いと、子要素のz-indexが高くても前面に出ない
-   - このコードでは、`nav`と`.menu`が同じ`z-index: 1000`だが、`.menu-icon`が`z-index: 1001`なので前面に出る
+   - このコードでは、`header`と`.menu`が同じ`z-index: 1000`だが、`.menu-icon`が`z-index: 1001`なので前面に出る
 
 2. **新しいスタッキングコンテキスト**
    - `position`が`relative`、`absolute`、`fixed`で、`z-index`が設定されると、新しいスタッキングコンテキストが作成される
